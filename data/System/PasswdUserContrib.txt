@@ -21,7 +21,7 @@ _only_ checks for the password in the =/etc/passwd= file.
 You can get a good idea whether the module will work for you by running
 a small fragment of perl *as the Apache user*
 <verbatim>
-perl -e 'for $i (1..10) { print join(" ",getpwnam),"\n" }'
+perl -e 'for (1..10) { print join(" ",getpwent),"\n" }'
 </verbatim>
 This will print the first 10 entries in =/etc/passwd=. If the second field
 of each user entry is always 'x', then you probably can't access the passwords
