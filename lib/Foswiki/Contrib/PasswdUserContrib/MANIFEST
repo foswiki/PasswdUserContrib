@@ -1,0 +1,4 @@
+# Release manifest for PasswdUserContrib
+data/System/PasswdUserContrib.txt 0644 Documentation
+lib/Foswiki/Contrib/PasswdUserContrib.pm 0644 Perl module
+lib/Foswiki/Users/PasswdUser.pm 0644 Perl module

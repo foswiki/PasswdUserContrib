@@ -1,0 +1,54 @@
+---+!! !PasswdUserContrib
+<!--
+   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
+-->
+%SHORTDESCRIPTION%
+
+%TOC%
+
+The module uses the standard =getpw*= functions to check passwords against
+the =/etc/passwd= file. Thus any user who has an entry in =/etc/passwd=
+on your server is able to log in to the wiki. It is intended for use
+with the =TemplateLogin= manager.
+
+<blockquote>
+This module will _only_ work with passwords that are stored in
+=/etc/passwd=. Most systems use shadow passwords, and the
+=getpwnam= call that this module uses to access the password
+_only_ checks for the password in the =/etc/passwd= file.
+</blockquote>
+
+You can get a good idea whether the module will work for you by running
+a small fragment of perl *as the Apache user*
+<verbatim>
+perl -e 'for $i (1..10) { print join(" ",getpwnam),"\n" }'
+</verbatim>
+This will print the first 10 entries in =/etc/passwd=. If the second field
+of each user entry is always 'x', then you probably can't access the passwords
+this way.
+
+Note that =/etc/passwd= is read-only, and you will not be able to add users,
+change or reset passwords from Foswiki.
+
+---++ Installation Instructions
+
+%$INSTALL_INSTRUCTIONS%
+   * Use the =TemplateLogin= login manager
+   * {AllowLoginName} should be set to 1
+
+---++ Info
+
+Many thanks to the following sponsors for supporting this work:
+   * Wind River Systems Inc.
+
+|  Author(s): | Crawford Currie http://c-dot.co.uk |
+|  Copyright: | &copy; 2010 Foswiki Contributors |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Release: | %$RELEASE% |
+|  Version: | %$VERSION% |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  Dependencies: | %$DEPENDENCIES% |
+|  Home page: | http://foswiki.org/bin/view/Extensions/PasswdUserContrib |
+|  Support: | http://foswiki.org/bin/view/Support/PasswdUserContrib |
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. -->
