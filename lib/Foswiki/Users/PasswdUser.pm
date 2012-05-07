@@ -51,7 +51,6 @@ sub canFetchUsers {
 }
 
 {
-
     # Iterator over users in /etc/passwd
     package EtcPasswdIt;
 
@@ -62,7 +61,9 @@ sub canFetchUsers {
         my $class = shift;
         setpwent();
         my ($first) = getpwent();
-        return bless( { next => $first, }, $class );
+        return bless({
+           next => $first,
+       }, $class);
     }
 
     sub hasNext {
@@ -71,9 +72,9 @@ sub canFetchUsers {
     }
 
     sub next {
-        my $this  = shift;
+        my $this = shift;
         my $entry = $this->{next};
-        ( $this->{next} ) = getpwent();
+        ($this->{next}) = getpwent();
         endpwent() unless $this->{next};
         return $entry;
     }
@@ -87,7 +88,7 @@ sub fetchPass {
     my ( $this, $login ) = @_;
 
     if ($login) {
-        my ( $user, $passwd ) = getpwnam($login);
+        my ($user, $passwd) = getpwnam($login);
         return $passwd;
     }
     $this->{error} = 'No user';

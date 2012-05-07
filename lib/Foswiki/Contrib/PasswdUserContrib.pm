@@ -15,7 +15,7 @@ package Foswiki::Contrib::PasswdUserContrib;
 
 use strict;
 
-our $VERSION = '$Rev$';    # version of *this file*.
+our $VERSION = '$Rev$'; # version of *this file*.
 our $RELEASE = '1.0.0';
 our $SHORTDESCRIPTION = 'Use getpwnam to get passwords from /etc/passwd';
 
